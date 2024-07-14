@@ -18,5 +18,6 @@ typedef struct file_data_s {
 } file_data_t;
 
 char *read_file(int argc, const char **argv, path_data_t *path_data);
+int handling_path_data(int argc, const char **argv, path_data_t *path_data);
 
 #endif

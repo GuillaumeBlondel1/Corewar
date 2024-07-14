@@ -5,8 +5,10 @@
 ## Makefile
 ##
 
-SRC	:=	src/main.c								\
-		asm_file_management/read_file.c 		\
+SRC	:=	src/main.c										\
+		asm_file_management/read_file.c 				\
+		asm_file_management/handling_path_data.c		\
+		utils/recover_path.c							\
 
 OBJ_DIR	:=	build
 
@@ -14,7 +16,7 @@ OBJ	:=	$(addprefix $(OBJ_DIR)/, $(notdir ${SRC:.c=.o}))
 
 BINARY	:=	asm_builder
 
-CFLAGS	:=	-Wall -Wextra
+CFLAGS	:=	-Wall -Wextra -g3
 
 all:	${OBJ_DIR} ${BINARY}
 
@@ -25,6 +27,9 @@ ${OBJ_DIR}/%.o:	src/%.c
 	gcc ${CFLAGS} -c $< -o $@
 
 ${OBJ_DIR}/%.o:	asm_file_management/%.c
+	gcc ${CFLAGS} -c $< -o $@
+
+${OBJ_DIR}/%.o:	utils/%.c
 	gcc ${CFLAGS} -c $< -o $@
 
 ${BINARY}:	${OBJ}

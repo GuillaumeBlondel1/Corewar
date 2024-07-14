@@ -56,11 +56,14 @@ char *read_file(int argc, const char **argv, path_data_t *path_data)
     if (existing_file(argv[1]) == false) {
         return NULL;
     }
+    if (handling_path_data(argc, argv, path_data) == 1) {
+        return NULL;
+    }
     if (open_file(argv[1], &file_data) == false) {
         return NULL;
     }
-    file = calloc(file_data.size_file * sizeof(char),
-        file_data.size_file * sizeof(char));
+    file = calloc((file_data.size_file + 1) * sizeof(char),
+        (file_data.size_file + 1) * sizeof(char));
     read(file_data.fd, file, file_data.size_file * sizeof(char));
     close(file_data.fd);
     return file;

@@ -20,6 +20,6 @@ int main(int argc, const char **argv)
     if (file == NULL) {
         return 84;
     }
-    printf("%s", file);
+    printf("%s\n", path_data.dest_filepath);
     return 0;
 }
