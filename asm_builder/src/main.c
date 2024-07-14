@@ -20,5 +20,8 @@ int main(int argc, const char **argv)
     if (file == NULL) {
         return 84;
     }
+    free_path_data(&path_data);
+    free(file);
+    file = NULL;
     return 0;
 }

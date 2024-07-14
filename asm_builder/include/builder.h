@@ -14,4 +14,6 @@ typedef struct path_data_s {
     char *cor_file_name;
 } path_data_t;
 
+void free_path_data(path_data_t *path_data);
+
 #endif
