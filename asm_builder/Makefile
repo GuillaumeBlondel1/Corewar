@@ -10,6 +10,8 @@ SRC	:=	src/main.c										\
 		file_management/handling_path_data.c			\
 		utils/recover_path.c							\
 		utils/recover_file_name.c						\
+		utils/stradd.c									\
+		utils/change_extension.c						\
 
 OBJ_DIR	:=	build
 

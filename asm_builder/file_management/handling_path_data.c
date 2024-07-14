@@ -38,11 +38,15 @@ int handling_path_data(int argc, const char **argv, path_data_t *path_data)
     if (option == 0) {
         path_data->dest_filepath = recover_path(argv[1]);
         path_data->asm_file_name = recover_file_name(argv[1]);
+        path_data->cor_file_name =
+            change_extension(path_data->asm_file_name, ".cor");
         return 0;
     }
     if (option == 1) {
         path_data->dest_filepath = recover_path(argv[3]);
-        path_data->asm_file_name = recover_file_name(argv[3]);
+        path_data->asm_file_name = recover_file_name(argv[1]);
+        path_data->cor_file_name =
+            change_extension(path_data->asm_file_name, ".cor");
         return 0;
     }
     return 1;

@@ -9,6 +9,7 @@
 #include "../include/file_management.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <stdbool.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -26,11 +27,15 @@ static bool open_file(const char *file_path, file_data_t *file_data)
 {
     struct stat file_stat = {0};
 
-    file_data->fd = open(file_path, O_RDONLY);
-    if (file_data->fd == -1) {
+    if (stat(file_path, &file_stat) == -1) {
         return false;
     }
-    if (stat(file_path, &file_stat) == -1) {
+    if (!(file_stat.st_mode & __S_IFREG)) {
+        dprintf(2, "It's not a valid file...\n");
+        return false;
+    }
+    file_data->fd = open(file_path, O_RDONLY);
+    if (file_data->fd == -1) {
         return false;
     }
     file_data->size_file = file_stat.st_size;
