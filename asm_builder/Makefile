@@ -6,9 +6,10 @@
 ##
 
 SRC	:=	src/main.c										\
-		asm_file_management/read_file.c 				\
-		asm_file_management/handling_path_data.c		\
+		file_management/read_file.c 					\
+		file_management/handling_path_data.c			\
 		utils/recover_path.c							\
+		utils/recover_file_name.c						\
 
 OBJ_DIR	:=	build
 
@@ -26,7 +27,7 @@ ${OBJ_DIR}:
 ${OBJ_DIR}/%.o:	src/%.c
 	gcc ${CFLAGS} -c $< -o $@
 
-${OBJ_DIR}/%.o:	asm_file_management/%.c
+${OBJ_DIR}/%.o:	file_management/%.c
 	gcc ${CFLAGS} -c $< -o $@
 
 ${OBJ_DIR}/%.o:	utils/%.c

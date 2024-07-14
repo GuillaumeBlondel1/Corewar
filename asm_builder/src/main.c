@@ -6,7 +6,7 @@
 */
 
 #include "../include/builder.h"
-#include "../include/asm_file_management.h"
+#include "../include/file_management.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -20,6 +20,6 @@ int main(int argc, const char **argv)
     if (file == NULL) {
         return 84;
     }
-    printf("%s\n", path_data.dest_filepath);
+    printf("%s\n", path_data.asm_file_name);
     return 0;
 }
