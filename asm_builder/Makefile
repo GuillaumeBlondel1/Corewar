@@ -9,6 +9,7 @@ SRC	:=	src/main.c										\
 		src/free_memory.c								\
 		file_management/read_file.c 					\
 		file_management/handling_path_data.c			\
+		parser/parser.c									\
 		utils/recover_path.c							\
 		utils/recover_file_name.c						\
 		utils/stradd.c									\
@@ -32,6 +33,9 @@ ${OBJ_DIR}/%.o:	src/%.c
 	gcc ${CFLAGS} -c $< -o $@
 
 ${OBJ_DIR}/%.o:	file_management/%.c
+	gcc ${CFLAGS} -c $< -o $@
+
+${OBJ_DIR}/%.o:	parser/%.c
 	gcc ${CFLAGS} -c $< -o $@
 
 ${OBJ_DIR}/%.o:	utils/%.c
