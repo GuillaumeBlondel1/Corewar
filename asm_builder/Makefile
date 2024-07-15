@@ -13,6 +13,7 @@ SRC	:=	src/main.c										\
 		utils/recover_file_name.c						\
 		utils/stradd.c									\
 		utils/change_extension.c						\
+		utils/split_str.c								\
 
 OBJ_DIR	:=	build
 

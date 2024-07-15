@@ -18,6 +18,7 @@
 static bool expect_args(int argc)
 {
     if (argc < 2) {
+        dprintf(2, "Not enough arguments...\n");
         return false;
     }
     return true;
@@ -28,6 +29,7 @@ static bool open_file(const char *file_path, file_data_t *file_data)
     struct stat file_stat = {0};
 
     if (stat(file_path, &file_stat) == -1) {
+        dprintf(2, "Doesn't exist...\n");
         return false;
     }
     if (!(file_stat.st_mode & __S_IFREG)) {

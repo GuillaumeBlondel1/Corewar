@@ -11,6 +11,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "../include/utils.h"
+
 int main(int argc, const char **argv)
 {
     path_data_t path_data = {0};
