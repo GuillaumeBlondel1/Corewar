@@ -10,6 +10,7 @@ SRC	:=	src/main.c										\
 		file_management/read_file.c 					\
 		file_management/handling_path_data.c			\
 		parser/parser.c									\
+		parser/parser_mask.c							\
 		utils/recover_path.c							\
 		utils/recover_file_name.c						\
 		utils/stradd.c									\
