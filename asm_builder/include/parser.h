@@ -26,6 +26,8 @@ typedef struct byte_code_parser_s {
 } byte_code_parser_t;
 
 bool parser(char *file, byte_code_parser_t *byte_code_parser);
+header_t parser_name_comment(char **splited_lines_file, int *index);
 void comment_mask(char *line);
+int strlen_parser(const char *line);
 
 #endif

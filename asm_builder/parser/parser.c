@@ -9,30 +9,40 @@
 #include "../include/utils.h"
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
 #include <stddef.h>
 
-static void free_file(char **splited_line_file)
+static void apply_comment_mask(char **splited_lines_file)
 {
-    if (splited_line_file == NULL) {
-        return;
+    for (int i = 0; splited_lines_file[i] != NULL; i++) {
+        comment_mask(splited_lines_file[i]);
     }
-    for (int i = 0; splited_line_file[i] != NULL; i++) {
-        free(splited_line_file[i]);
+}
+
+static bool error_name_comment(header_t header)
+{
+    if (!strlen(header.prog_name) || !strlen(header.comment)) {
+        return true;
     }
-    free(splited_line_file);
+    return false;
 }
 
 bool parser(char *file, byte_code_parser_t *byte_code_parser)
 {
-    char **splited_line_file = NULL;
+    char **splited_lines_file = NULL;
+    int index = 0;
 
     if (file == NULL) {
         return false;
     }
-    splited_line_file = split_str(file, "\n");
-    free_file(splited_line_file);
+    splited_lines_file = split_str(file, "\n");
+    apply_comment_mask(splited_lines_file);
+    byte_code_parser->header = parser_name_comment(splited_lines_file, &index);
+    if (error_name_comment(byte_code_parser->header)) {
+        free_split_str(splited_lines_file);
+        return false;
+    }
+    free_split_str(splited_lines_file);
     return true;
 }

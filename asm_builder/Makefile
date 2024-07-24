@@ -11,11 +11,14 @@ SRC	:=	src/main.c										\
 		file_management/handling_path_data.c			\
 		parser/parser.c									\
 		parser/parser_mask.c							\
+		parser/parser_name_comment.c					\
 		utils/recover_path.c							\
 		utils/recover_file_name.c						\
 		utils/stradd.c									\
 		utils/change_extension.c						\
 		utils/split_str.c								\
+		utils/split_strlen.c							\
+		utils/free_split_str.c							\
 
 OBJ_DIR	:=	build
 

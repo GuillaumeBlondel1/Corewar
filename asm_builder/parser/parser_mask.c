@@ -24,3 +24,15 @@ void comment_mask(char *line)
         }
     }
 }
+
+int strlen_parser(const char *line)
+{
+    int len = 0;
+
+    for (int i = 0; line[i] != '\0'; i++) {
+        if (line[i] != ' ' && line[i] != '\t') {
+            len++;
+        }
+    }
+    return len;
+}
