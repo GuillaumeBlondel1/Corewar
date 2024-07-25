@@ -36,3 +36,30 @@ int strlen_parser(const char *line)
     }
     return len;
 }
+
+char *body_line_mash(char *line)
+{
+    char *new_line = NULL;
+    size_t len_new_line = 0;
+
+    len_new_line = strlen(line) * 2;
+    new_line = calloc((len_new_line + 1) * sizeof(char),
+        (len_new_line + 1) * sizeof(char));
+    for (int i = 0, j = 0; line[i] != '\0'; i++) {
+        if (line[i] == ' ' || line[i] == '\t' || line[i] == ',') {
+            new_line[j] = SPLIT_CHAR[0];
+            j++;
+            continue;
+        }
+        if (line[i] == ':') {
+            new_line[j] = line[i];
+            new_line[j + 1] = SPLIT_CHAR[0];
+            j += 2;
+            continue;
+        }
+        new_line[j] = line[i];
+        j++;
+    }
+    free(line);
+    return new_line;
+}

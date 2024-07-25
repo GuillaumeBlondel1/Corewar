@@ -10,9 +10,11 @@
 
     #include <stdbool.h>
 
-#define PROG_NAME_LENGTH 128
-#define COMMENT_LENGTH 2048
-#define COREWAR_EXEC_MAGIC 0xea83f3
+    #define SPLIT_CHAR "\a"
+
+    #define PROG_NAME_LENGTH 128
+    #define COMMENT_LENGTH 2048
+    #define COREWAR_EXEC_MAGIC 0xea83f3
 
 typedef struct header_s {
     int magic_number;
@@ -29,5 +31,6 @@ bool parser(char *file, byte_code_parser_t *byte_code_parser);
 header_t parser_name_comment(char **splited_lines_file, int *index);
 void comment_mask(char *line);
 int strlen_parser(const char *line);
+char *body_line_mash(char *line);
 
 #endif

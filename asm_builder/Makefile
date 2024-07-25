@@ -19,6 +19,8 @@ SRC	:=	src/main.c										\
 		utils/split_str.c								\
 		utils/split_strlen.c							\
 		utils/free_split_str.c							\
+		llist/implement_llist.c							\
+		llist/free_llist.c								\
 
 OBJ_DIR	:=	build
 
@@ -43,6 +45,9 @@ ${OBJ_DIR}/%.o:	parser/%.c
 	gcc ${CFLAGS} -c $< -o $@
 
 ${OBJ_DIR}/%.o:	utils/%.c
+	gcc ${CFLAGS} -c $< -o $@
+
+${OBJ_DIR}/%.o:	llist/%.c
 	gcc ${CFLAGS} -c $< -o $@
 
 ${BINARY}:	${OBJ}
