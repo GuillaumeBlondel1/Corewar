@@ -20,9 +20,9 @@ static void apply_comment_mask(char **splited_lines_file)
     }
 }
 
-static bool error_name_comment(header_t header)
+static bool error_name_comment(const header_t *header)
 {
-    if (!strlen(header.prog_name) || !strlen(header.comment)) {
+    if (!strlen(header->prog_name) || !strlen(header->comment)) {
         return true;
     }
     return false;
@@ -39,7 +39,7 @@ bool parser(char *file, byte_code_parser_t *byte_code_parser)
     splited_lines_file = split_str(file, "\n");
     apply_comment_mask(splited_lines_file);
     byte_code_parser->header = parser_name_comment(splited_lines_file, &index);
-    if (error_name_comment(byte_code_parser->header)) {
+    if (error_name_comment(&byte_code_parser->header)) {
         free_split_str(splited_lines_file);
         return false;
     }

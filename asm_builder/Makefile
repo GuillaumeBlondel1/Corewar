@@ -7,6 +7,7 @@
 
 SRC	:=	src/main.c										\
 		src/free_memory.c								\
+		src/op.c										\
 		file_management/read_file.c 					\
 		file_management/handling_path_data.c			\
 		parser/parser.c									\
