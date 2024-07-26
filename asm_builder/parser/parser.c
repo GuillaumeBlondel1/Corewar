@@ -43,6 +43,11 @@ bool parser(char *file, byte_code_parser_t *byte_code_parser)
         free_split_str(splited_lines_file);
         return false;
     }
+    byte_code_parser->body = parser_body(&splited_lines_file[index]);
+    if (byte_code_parser->body == NULL) {
+        free_split_str(splited_lines_file);
+        return false;
+    }
     free_split_str(splited_lines_file);
     return true;
 }

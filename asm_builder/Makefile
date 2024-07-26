@@ -13,6 +13,10 @@ SRC	:=	src/main.c										\
 		parser/parser.c									\
 		parser/parser_mask.c							\
 		parser/parser_name_comment.c					\
+		parser/parser_body.c							\
+		parser/checking_label.c							\
+		parser/parser_instruction.c						\
+		parser/parser_args.c							\
 		utils/recover_path.c							\
 		utils/recover_file_name.c						\
 		utils/stradd.c									\
@@ -20,8 +24,11 @@ SRC	:=	src/main.c										\
 		utils/split_str.c								\
 		utils/split_strlen.c							\
 		utils/free_split_str.c							\
+		utils/is_num.c									\
+		utils/is_correct_char.c							\
 		llist/implement_llist.c							\
 		llist/free_llist.c								\
+		llist/last_node.c								\
 
 OBJ_DIR	:=	build
 

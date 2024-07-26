@@ -15,5 +15,7 @@ char *change_extension(const char *file_name, const char *new_extension);
 char **split_str(char *str, const char *separators);
 int split_strlen(char **split_str);
 void free_split_str(char **split_str);
+bool is_num(const char *str);
+bool is_correct_char(const char *str, const char *correct_char);
 
 #endif

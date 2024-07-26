@@ -16,12 +16,12 @@ extern op_t op_tab[] = {
     {"and", 0x06, 3, {T_REG | T_DIR | T_IND, T_REG | T_IND | T_DIR, T_REG}},
     {"or", 0x07, 3, {T_REG | T_IND | T_DIR, T_REG | T_IND | T_DIR, T_REG}},
     {"xor", 0x08, 3, {T_REG | T_IND | T_DIR, T_REG | T_IND | T_DIR, T_REG}},
-    {"zjmp", 0x09, 1, {T_DIR}},
-    {"ldi", 0x0a, 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}},
-    {"sti", 0x0b, 3, {T_REG, T_REG | T_DIR | T_IND, T_DIR | T_REG}},
-    {"fork", 0x0c, 1, {T_DIR}},
+    {"zjmp", 0x09, 1, {T_IDX}},
+    {"ldi", 0x0a, 3, {T_REG | T_IDX | T_IND, T_IDX | T_REG, T_REG}},
+    {"sti", 0x0b, 3, {T_REG, T_REG | T_IDX | T_IND, T_IDX | T_REG}},
+    {"fork", 0x0c, 1, {T_IDX}},
     {"lld", 0x0d, 2, {T_DIR | T_IND, T_REG}},
-    {"lldi", 0x0e, 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}},
-    {"lfork", 0x0f, 1, {T_DIR}},
+    {"lldi", 0x0e, 3, {T_REG | T_IDX | T_IND, T_IDX | T_REG, T_REG}},
+    {"lfork", 0x0f, 1, {T_IDX}},
     {"aff", 0x10, 1, {T_REG}}
 };

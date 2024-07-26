@@ -15,5 +15,6 @@ typedef struct llist_s {
 
 llist_t *implement_llist(llist_t *llist, void *new_data);
 llist_t *free_llist(llist_t *llist);
+llist_t *last_node(llist_t *llist);
 
 #endif
