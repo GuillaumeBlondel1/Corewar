@@ -22,12 +22,14 @@
 
     #define T_REG 1
     #define T_DIR 2
-    #define T_IND 4
+    #define T_IDX 16
     #define T_LAB 8
-    #define T_IDX 8
-    #define T_INST 16
+    #define T_IND 4
+    #define T_INST 32
+    #define T_COD_BYTE 64
 
     #define S_INST 1
+    #define S_COD_BYTE 1
     #define S_REG 1
     #define S_DIR 4
     #define S_IND 2
@@ -49,6 +51,7 @@ typedef struct op_s {
     char mnemonique_value;
     int nbr_args;
     args_type_t args[MAX_NBR_ARGS];
+    bool coding_byte;
 } op_t;
 
 typedef struct bytes_instruction_s {

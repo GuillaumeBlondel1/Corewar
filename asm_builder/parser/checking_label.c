@@ -52,7 +52,7 @@ llist_t *checking_label(const char *myb_label, llist_t *body,
             sizeof(*bytes_instruction));
         bytes_instruction->label_declaraction = implement_label(myb_label);
         bytes_instruction->type_label_declaration = true;
-        body = implement_llist(body, bytes_instruction);
+        body = add_node_to_llist(body, bytes_instruction);
     }
     return body;
 }

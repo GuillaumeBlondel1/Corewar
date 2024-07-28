@@ -56,7 +56,7 @@ static llist_t *implement_register(const char *arg, args_type_t arg_type,
     bytes_instruction->type = T_REG;
     bytes_instruction->value = atoi(&arg[1]);
     bytes_instruction->nb_bytes = S_REG;
-    body = implement_llist(body, bytes_instruction);
+    body = add_node_to_llist(body, bytes_instruction);
     return body;
 }
 
@@ -78,7 +78,7 @@ static llist_t *implement_label(const char *arg, args_type_t arg_type,
     bytes_instruction->type = T_LAB;
     bytes_instruction->label_declaraction = strdup(&arg[2]);
     bytes_instruction->type_label_declaration = false;
-    body = implement_llist(body, bytes_instruction);
+    body = add_node_to_llist(body, bytes_instruction);
     return body;
 }
 
@@ -106,7 +106,7 @@ static llist_t *implement_direct(const char *arg, args_type_t arg_type,
         bytes_instruction->type = T_IDX;
         bytes_instruction->nb_bytes = S_IND;
     }
-    body = implement_llist(body, bytes_instruction);
+    body = add_node_to_llist(body, bytes_instruction);
     return body;
 }
 
@@ -128,7 +128,7 @@ static llist_t *implement_indirect(const char *arg, args_type_t arg_type,
     bytes_instruction->type = T_IND;
     bytes_instruction->value = atoi(arg);
     bytes_instruction->nb_bytes = S_IND;
-    body = implement_llist(body, bytes_instruction);
+    body = add_node_to_llist(body, bytes_instruction);
     return body;
 }
 

@@ -8,6 +8,8 @@
 #ifndef _UTILS_
     #define _UTILS_
 
+    #include <stdbool.h>
+
 char *recover_path(const char *absolute_path);
 char *recover_file_name(const char *absolute_path);
 char *stradd(const char *str1, const char *str2);
