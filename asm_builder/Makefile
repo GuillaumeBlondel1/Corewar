@@ -17,6 +17,7 @@ SRC	:=	src/main.c										\
 		parser/checking_label.c							\
 		parser/parser_instruction.c						\
 		parser/parser_args.c							\
+		parser/compute_label.c							\
 		utils/recover_path.c							\
 		utils/recover_file_name.c						\
 		utils/stradd.c									\

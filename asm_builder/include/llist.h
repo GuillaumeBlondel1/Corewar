@@ -11,6 +11,7 @@
 typedef struct llist_s {
     void *data;
     struct llist_s *next_node;
+    struct llist_s *prev_node;
 } llist_t;
 
 llist_t *add_node_to_llist(llist_t *llist, void *new_data);
