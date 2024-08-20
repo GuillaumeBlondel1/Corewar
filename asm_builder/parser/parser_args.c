@@ -69,13 +69,14 @@ static llist_t *implement_label(const char *arg, args_type_t arg_type,
         *error = true;
         return body;
     }
-    if (!(T_IND & arg_type)) {
+    if (!(T_IDX & arg_type)) {
         *error = true;
         return body;
     }
     bytes_instruction = calloc(sizeof(*bytes_instruction),
         sizeof(*bytes_instruction));
     bytes_instruction->type = T_LAB;
+    bytes_instruction->nb_bytes = T_IND;
     bytes_instruction->label_declaraction = strdup(&arg[2]);
     bytes_instruction->type_label_declaration = false;
     body = add_node_to_llist(body, bytes_instruction);

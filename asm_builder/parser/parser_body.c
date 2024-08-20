@@ -56,5 +56,9 @@ llist_t *parser_body(char **splited_lines_file)
             return NULL;
         }
     }
+    compute_label(body, &error);
+    if (error) {
+        return NULL;
+    }
     return body;
 }
